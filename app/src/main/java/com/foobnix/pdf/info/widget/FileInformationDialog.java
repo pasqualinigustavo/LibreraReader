@@ -31,7 +31,6 @@ import com.foobnix.ext.EbookMeta;
 import com.foobnix.model.AppBookmark;
 import com.foobnix.model.AppData;
 import com.foobnix.model.AppState;
-import com.foobnix.pdf.info.ADS;
 import com.foobnix.pdf.info.BookmarksData;
 import com.foobnix.pdf.info.BuildConfig;
 import com.foobnix.pdf.info.Clouds;
@@ -85,8 +84,6 @@ public class FileInformationDialog {
     }
 
     public static void showFileInfoDialog(final Activity a, final File file, final Runnable onDeleteAction) {
-
-        ADS.hideAdsTemp(a);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(a);
 
@@ -203,7 +200,7 @@ public class FileInformationDialog {
 
         String sequence = fileMeta.getSequence();
         if (TxtUtils.isNotEmpty(sequence)) {
-            sequence = sequence.replace(",","");
+            sequence = sequence.replace(",", "");
             final TextView metaSeries = (TextView) dialog.findViewById(R.id.metaSeries);
 
             if (fileMeta.getSIndex() != null && fileMeta.getSIndex() > 0) {
@@ -445,7 +442,7 @@ public class FileInformationDialog {
                 } else {
                     starIcon.setImageResource(R.drawable.star_1);
                 }
-                TintUtil.setTintImageNoAlpha(starIcon,TintUtil.getColorInDayNighth());
+                TintUtil.setTintImageNoAlpha(starIcon, TintUtil.getColorInDayNighth());
 
             }
         });
@@ -456,10 +453,9 @@ public class FileInformationDialog {
             starIcon.setImageResource(R.drawable.star_1);
         }
 
-        TintUtil.setTintImageNoAlpha(starIcon,TintUtil.getColorInDayNighth());
+        TintUtil.setTintImageNoAlpha(starIcon, TintUtil.getColorInDayNighth());
 
         TintUtil.setBackgroundFillColor(openFile, TintUtil.color);
-
 
 
         // builder.setTitle(R.string.file_info);

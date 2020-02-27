@@ -41,7 +41,7 @@ public abstract class AdsFragmentActivity extends FragmentActivity {
     }
 
 
-    protected  boolean withInterstitial = true;
+    protected boolean withInterstitial = true;
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -60,34 +60,6 @@ public abstract class AdsFragmentActivity extends FragmentActivity {
     }
 
     @Override
-    protected void onResume() {
-        try {
-            myAds.resume();
-        } catch (Exception e) {
-            LOG.e(e);
-        }
-        super.onResume();
-
-        // sampleServer.run();
-    }
-
-    @Override
-    protected void onPause() {
-
-        try {
-            myAds.pause();
-        } catch (Exception e) {
-            LOG.e(e);
-        }
-        super.onPause();
-        // sampleServer.stop();
-    }
-
-    public void adsPause() {
-        myAds.pause();
-    }
-
-    @Override
     protected void onDestroy() {
         myAds.destroy();
         super.onDestroy();
@@ -101,24 +73,24 @@ public abstract class AdsFragmentActivity extends FragmentActivity {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        LOG.d("AdsFragmentActivity onSaveInstanceState before",outState);
+        LOG.d("AdsFragmentActivity onSaveInstanceState before", outState);
 
-        if(outState!=null) {
+        if (outState != null) {
             outState.clear();
         }
-        LOG.d("AdsFragmentActivity onSaveInstanceState after",outState);
+        LOG.d("AdsFragmentActivity onSaveInstanceState after", outState);
         super.onSaveInstanceState(outState);
 
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        LOG.d("AdsFragmentActivity onRestoreInstanceState before",savedInstanceState);
+        LOG.d("AdsFragmentActivity onRestoreInstanceState before", savedInstanceState);
 
-        if(savedInstanceState!=null){
+        if (savedInstanceState != null) {
             savedInstanceState.clear();
         }
-        LOG.d("AdsFragmentActivity onRestoreInstanceState after",savedInstanceState);
+        LOG.d("AdsFragmentActivity onRestoreInstanceState after", savedInstanceState);
 
         super.onRestoreInstanceState(savedInstanceState);
     }
@@ -126,7 +98,6 @@ public abstract class AdsFragmentActivity extends FragmentActivity {
     public void showInterstial() {
         TTSNotification.hideNotification();
         TTSEngine.get().shutdown();
-        adsPause();
         if (myAds.showInterstial()) {
             // ok
         } else {

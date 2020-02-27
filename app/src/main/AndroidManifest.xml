@@ -249,24 +249,6 @@
             </intent-filter>
         </activity>
 
-
-        <activity
-            android:name="com.foobnix.sys.TestActivity"
-            android:launchMode="singleTop">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN1" />
-                <category android:name="android.intent.category.LAUNCHER1" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="test.SvgActivity"
-            android:launchMode="singleTop">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN1" />
-                <category android:name="android.intent.category.LAUNCHER1" />
-            </intent-filter>
-        </activity>
-
         <activity
             android:name="com.foobnix.ui2.MainTabs2"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
@@ -299,6 +281,20 @@
                 <category android:name="android.intent.category.DEFAULT1" />
 
                 <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.foobnix.ui2.MainActivitySeeBook"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:resizeableActivity="true"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 

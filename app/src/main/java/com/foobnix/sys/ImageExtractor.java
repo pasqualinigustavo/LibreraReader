@@ -64,8 +64,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
 
-import mobi.librera.smartreflow.AndroidPlatformImage;
-import mobi.librera.smartreflow.SmartReflow;
 import okhttp3.Request;
 
 public class ImageExtractor implements ImageDownloader {
@@ -426,23 +424,6 @@ public class ImageExtractor implements ImageDownloader {
 
             if (pageUrl.isCrop()) {
                 bitmap = cropBitmap(bitmap, bitmap);
-            }
-        }
-
-        if (AppSP.get().isSmartReflow) {
-            try {
-                final AndroidPlatformImage input = new AndroidPlatformImage(bitmap);
-
-
-                SmartReflow sm = new SmartReflow(input);
-
-                final AndroidPlatformImage  output  = new AndroidPlatformImage((int) (bitmap.getWidth() * 0.6), (int)(bitmap.getHeight()*0.8));
-
-                sm.smartReflow(output);
-                bitmap.recycle();
-                bitmap = output.getImage();
-            } catch (Exception e) {
-                LOG.e(e);
             }
         }
 

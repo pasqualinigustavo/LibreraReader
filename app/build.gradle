@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 def taskName=getGradle().getStartParameter().getTaskRequests().toString();
 
@@ -53,11 +55,18 @@ android {
     }
 
     signingConfigs {
+        debug {
+            storeFile file("tocalivros_android_premium.key")
+            storePassword "0Okm9ijn"
+            keyAlias "Tocalivros"
+            keyPassword "0Okm9ijn"
+        }
+
         release {
-            storeFile file(RELEASE_STORE_FILE)
-            storePassword RELEASE_STORE_PASSWORD
-            keyAlias RELEASE_KEY_ALIAS
-            keyPassword RELEASE_KEY_PASSWORD
+            storeFile file("tocalivros_android_premium.key")
+            storePassword "0Okm9ijn"
+            keyAlias "Tocalivros"
+            keyPassword "0Okm9ijn"
         }
     }
 
@@ -344,12 +353,6 @@ dependencies {
     implementation 'javax.xml.stream:stax-api:1.0-2'
     implementation 'net.lingala.zip4j:zip4j:2.3.1'
 
-
-    alphaImplementation project(':pro')
-    proImplementation project(':pro')
-    fdroidImplementation project(':pro')
-    implementation project(':smartreflow')
-
     betaImplementation 'com.google.firebase:firebase-ads:18.3.0'
     libreraImplementation 'com.google.firebase:firebase-ads:18.3.0'
     pdf_v2Implementation 'com.google.firebase:firebase-ads:18.3.0'
@@ -357,6 +360,7 @@ dependencies {
     tts_readerImplementation 'com.google.firebase:firebase-ads:18.3.0'
     pdf_classicImplementation 'com.google.firebase:firebase-ads:18.3.0'
     epub_readerImplementation 'com.google.firebase:firebase-ads:18.3.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 
 }
@@ -424,4 +428,7 @@ if (!taskName.contains("Fdroid")){
             exclude group: 'org.apache.httpcomponents'
         }
     }
+}
+repositories {
+    mavenCentral()
 }

@@ -56,7 +56,6 @@ import com.foobnix.model.AppProfile;
 import com.foobnix.model.AppSP;
 import com.foobnix.model.AppState;
 import com.foobnix.pdf.CopyAsyncTask;
-import com.foobnix.pdf.info.ADS;
 import com.foobnix.pdf.info.Android6;
 import com.foobnix.pdf.info.BookmarksData;
 import com.foobnix.pdf.info.BuildConfig;
@@ -405,7 +404,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         quickBookmark = getString(R.string.fast_bookmark);
-        intetrstialTimeoutSec = ADS.FULL_SCREEN_TIMEOUT_SEC;
         LOG.d("getRequestedOrientation", AppState.get().orientation, getRequestedOrientation());
 
 

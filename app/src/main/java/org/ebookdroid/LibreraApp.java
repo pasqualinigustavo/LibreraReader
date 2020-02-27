@@ -10,20 +10,16 @@ import com.foobnix.android.utils.Apps;
 import com.foobnix.android.utils.Dips;
 import com.foobnix.android.utils.LOG;
 import com.foobnix.ext.CacheZipUtils;
-import com.foobnix.pdf.info.AppsConfig;
 import com.foobnix.pdf.info.BuildConfig;
 import com.foobnix.pdf.info.IMG;
 import com.foobnix.pdf.info.R;
 import com.foobnix.pdf.info.TintUtil;
 import com.foobnix.tts.TTSNotification;
-import com.google.android.gms.ads.MobileAds;
 
 import org.ebookdroid.common.bitmaps.BitmapManager;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-
-
 
 
 public class LibreraApp extends MultiDexApplication {
@@ -41,13 +37,8 @@ public class LibreraApp extends MultiDexApplication {
         super.onCreate();
 
 
-
         context = getApplicationContext();
         Dips.init(this);
-
-        if (!AppsConfig.checkIsProInstalled(this)) {
-            MobileAds.initialize(this, Apps.getMetaData(this, "com.google.android.gms.ads.APPLICATION_ID"));
-        }
 
 
         LOG.isEnable = BuildConfig.LOG || BuildConfig.IS_BETA;
