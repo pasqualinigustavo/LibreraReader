@@ -3,14 +3,23 @@
 
 git clone --recursive git://git.ghostscript.com/mupdf.git --branch 1.11 mupdf-1.11
 cd mupdf-1.11
-make
+git submodule update --init
+make HAVE_X11=no HAVE_GLUT=no HAVE_GLFW=no prefix=/usr/local install
 cd ..
 
-MUPDF_ROOT=/home/ivan-dev/git/LibreraReader/Builder/mupdf-1.11
+export ANDROID_SDK=/Users/pasqualini/Library/Android/sdk
+export ANDROID_NDK=/Users/pasqualini/Library/Android/sdk/ndk/16.1.4479499
+export PATH="$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$ANDROID_NDK"
+export NDK_PROJECT_PATH=MUPDF_JAVA
+export my-dir=/Users/pasqualini/Projetos/LibreraReader
+export TOP_LOCAL_PATH=/Users/pasqualini/Projetos/LibreraReader
+export LOCAL_PATH=/Users/pasqualini/Projetos/LibreraReader
+
+MUPDF_ROOT=/Users/pasqualini/Projetos/LibreraReader/Builder/mupdf-1.11
 
 MUPDF_JAVA=$MUPDF_ROOT/platform/java
 
-LIBS=/home/ivan-dev/git/LibreraReader/app/src/main/jniLibs
+LIBS=/Users/pasqualini/Projetos/LibreraReader/app/src/main/jniLibs
 
 rm -rf  $MUPDF_JAVA/jni
 cp -rRp jni-1.11 $MUPDF_JAVA/jni
