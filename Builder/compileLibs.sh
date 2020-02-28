@@ -11,7 +11,7 @@ MUPDF_ROOT=/Users/pasqualini/Projetos/LibreraReader/Builder/mupdf-1.11
 OTHER_MU=/Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11
 #MUPDF_ROOT=/Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11
 
-MUPDF_JAVA=$MUPDF_ROOT
+MUPDF_JAVA=$OTHER_MU
 
 export NDK_PROJECT_PATH=$MUPDF_JAVA
 #export TOP_LOCAL_PATH=/Users/pasqualini/Projetos/LibreraReader
@@ -36,7 +36,7 @@ cp -rp jni-1.11/~mupdf/epub-doc.c $MUPDF_ROOT/source/html/epub-doc.c
 
 cd $MUPDF_JAVA
 
-ndk-build APP_BUILD_SCRIPT=$MUPDF_JAVA/Android.mk APP_PROJECT_DIR=$MUPDF_JAVA APP_PLATFORM=android-16 APP_OPTIM=release APP_ABI=all
+ndk-build APP_BUILD_SCRIPT=$MUPDF_JAVA/Mobi/Android.mk APP_PROJECT_DIR=$MUPDF_JAVA APP_PLATFORM=android-16 APP_OPTIM=release APP_ABI=all
 
 echo "MUPDF:" $MUPDF_JAVA
 echo "LIBS:"  $LIBS
