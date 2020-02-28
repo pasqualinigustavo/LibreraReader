@@ -10,14 +10,14 @@ cd ..
 export ANDROID_SDK=/Users/pasqualini/Library/Android/sdk
 export ANDROID_NDK=/Users/pasqualini/Library/Android/sdk/ndk/16.1.4479499
 export PATH="$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$ANDROID_NDK"
-export NDK_PROJECT_PATH=MUPDF_JAVA
-export my-dir=/Users/pasqualini/Projetos/LibreraReader
-export TOP_LOCAL_PATH=/Users/pasqualini/Projetos/LibreraReader
-export LOCAL_PATH=/Users/pasqualini/Projetos/LibreraReader
 
 MUPDF_ROOT=/Users/pasqualini/Projetos/LibreraReader/Builder/mupdf-1.11
 
 MUPDF_JAVA=$MUPDF_ROOT/platform/java
+
+export NDK_PROJECT_PATH=$MUPDF_JAVA
+#export TOP_LOCAL_PATH=/Users/pasqualini/Projetos/LibreraReader
+#export LOCAL_PATH=/Users/pasqualini/Projetos/LibreraReader
 
 LIBS=/Users/pasqualini/Projetos/LibreraReader/app/src/main/jniLibs
 
@@ -44,7 +44,8 @@ cp -rp jni-1.11/~mupdf/structured-text.h $MUPDF_ROOT/include/mupdf/fitz/structur
 
 
 cd $MUPDF_JAVA
-ndk-build $1
+
+ndk-build APP_BUILD_SCRIPT=$MUPDF_JAVA/Android.mk APP_PROJECT_DIR=$MUPDF_JAVA APP_PLATFORM=android-16 APP_OPTIM=release APP_ABI=all
 
 echo "MUPDF:" $MUPDF_JAVA
 echo "LIBS:"  $LIBS

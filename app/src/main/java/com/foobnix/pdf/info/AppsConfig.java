@@ -19,6 +19,7 @@ public class AppsConfig {
     public static final String LIBRERA_READER = "com.foobnix.pdf.reader";
     public static final boolean ADS_ON_PAGE = false;
     public static int MUPDF_1_11 = 111;
+//    final public static int MUPDF_VERSION = MUPDF_1_11;
     public static final boolean PDF_DRAW_ENABLE = MUPDF_VERSION == MUPDF_1_11;
     public static int MUPDF_1_16 = 116;
     public static boolean isDOCXSupported = Build.VERSION.SDK_INT >= 26;
