@@ -4,18 +4,18 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-
+        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:visibility="gone"
             android:id="@+id/playListParent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/playListName"
@@ -25,8 +25,7 @@
                 android:text="Playlists"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
-                android:visibility="gone"
-             />
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/playListNameEdit"
@@ -45,8 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dip" >
-        </androidx.recyclerview.widget.RecyclerView>
+            android:padding="5dip"></androidx.recyclerview.widget.RecyclerView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,7 +54,7 @@
             android:paddingLeft="2dip"
             android:paddingRight="2dip"
             android:paddingTop="2dip"
-            android:visibility="visible" >
+            android:visibility="visible">
 
             <ImageView
                 android:id="@+id/linkHistory"
@@ -66,16 +64,6 @@
                 android:contentDescription="@string/back"
                 android:src="@drawable/glyphicons_222_unshare"
                 android:visibility="visible" />
-
-            <ImageView
-                android:id="@+id/onShowSearch"
-                style="@style/buttonWhite"
-                android:layout_width="@dimen/wh_button"
-                android:layout_height="@dimen/wh_button"
-                android:layout_weight="0"
-                android:contentDescription="@string/search"
-                android:src="@drawable/glyphicons_28_search1"
-                android:textColor="#ffffff" />
 
             <ImageView
                 android:id="@+id/onRecent"
@@ -103,15 +91,6 @@
                 android:layout_weight="0"
                 android:contentDescription="@string/go_to_page_dialog"
                 android:src="@drawable/glyphicons_37_file" />
-
-            <ImageView
-                android:id="@+id/onBookmarks"
-                style="@style/buttonWhite"
-                android:layout_width="@dimen/wh_button"
-                android:layout_height="@dimen/wh_button"
-                android:layout_weight="0"
-                android:contentDescription="@string/bookmarks"
-                android:src="@drawable/glyphicons_73_bookmark1" />
 
             <ImageView
                 android:id="@+id/onDocDontext"
@@ -155,7 +134,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="2dip"
-            android:paddingRight="2dip" >
+            android:paddingRight="2dip">
 
             <TextView
                 android:id="@+id/currentSeek"
@@ -207,7 +186,7 @@
             android:orientation="horizontal"
             android:paddingBottom="2dip"
             android:paddingLeft="2dip"
-            android:paddingRight="2dip" >
+            android:paddingRight="2dip">
 
             <ImageView
                 android:id="@+id/autoScroll"
@@ -247,15 +226,6 @@
                 android:textColor="#ffffff"
                 android:textSize="13sp"
                 android:textStyle="normal" />
-
-            <ImageView
-                android:id="@+id/bookMenu"
-                style="@style/buttonWhite"
-                android:layout_width="@dimen/wh_button"
-                android:layout_height="@dimen/wh_button"
-                android:layout_weight="0"
-                android:contentDescription="@string/menu"
-                android:src="@drawable/glyphicons_518_option_vertical" />
 
             <ImageView
                 android:id="@+id/lockUnlock"

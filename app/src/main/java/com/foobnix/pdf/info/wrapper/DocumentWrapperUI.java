@@ -1261,7 +1261,7 @@ public class DocumentWrapperUI {
 
         ImageView brightness = (ImageView) a.findViewById(R.id.brightness);
         brightness.setOnClickListener(onSun);
-        brightness.setImageResource(!AppState.get().isDayNotInvert ? R.drawable.glyphicons_232_sun : R.drawable.glyphicons_2_moon);
+        brightness.setImageResource(!AppState.get().isDayNotInvert ? R.drawable.glyphicons_232_sun : R.drawable.ic_daylight_gray);
 
         // if (Dips.isEInk(dc.getActivity())) {
         // brightness.setVisibility(View.GONE);
@@ -1303,7 +1303,7 @@ public class DocumentWrapperUI {
         onCloseBook.setOnLongClickListener(onCloseLongClick);
         onCloseBook.setVisibility(View.INVISIBLE);
 
-        showSearch = (ImageView) a.findViewById(R.id.onShowSearch);
+        showSearch = a.findViewById(R.id.activity_horizontal_view__imageview_search);
         showSearch.setOnClickListener(onShowSearch);
         autoScroll = ((ImageView) a.findViewById(R.id.autoScroll));
         autoScroll.setOnClickListener(onAutoScroll);
@@ -1352,7 +1352,7 @@ public class DocumentWrapperUI {
 
         drawView = (DrawView) a.findViewById(R.id.drawView);
 
-        View bookmarks = a.findViewById(R.id.onBookmarks);
+        View bookmarks = a.findViewById(R.id.activity_horizontal_view__imageview_bookmars);
         bookmarks.setOnClickListener(onBookmarks);
         bookmarks.setOnLongClickListener(onBookmarksLong);
 
@@ -1393,7 +1393,7 @@ public class DocumentWrapperUI {
         View thumbnail = a.findViewById(R.id.thumbnail);
         thumbnail.setOnClickListener(onThumbnail);
 
-        View bookMenu = a.findViewById(R.id.bookMenu);
+        View bookMenu = a.findViewById(R.id.activity_horizontal_view__imageview_menumore);
         bookMenu.setOnClickListener(onItemMenu);
         modeName.setOnClickListener(onItemMenu);
         modeName.setOnLongClickListener(onCloseLongClick);

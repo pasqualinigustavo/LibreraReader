@@ -681,7 +681,7 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
             }
         });
 
-        activity_horizontal_view__imageview_daylight.setImageResource(!AppState.get().isDayNotInvert ? R.drawable.glyphicons_232_sun : R.drawable.glyphicons_2_moon);
+        //activity_horizontal_view__imageview_daylight.setImageResource(!AppState.get().isDayNotInvert ? R.drawable.glyphicons_232_sun : R.drawable.glyphicons_2_moon);
 
         moveCenter.setOnClickListener(new OnClickListener() {
 
@@ -706,7 +706,7 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
 
             }
         });
-        findViewById(R.id.onShowSearch).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.activity_horizontal_view__imageview_search).setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(final View v) {
@@ -725,9 +725,9 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
                 }
             }
         });
-        findViewById(R.id.onBookmarks).setOnClickListener(onBookmarks);
+        findViewById(R.id.activity_horizontal_view__imageview_bookmars).setOnClickListener(onBookmarks);
 
-        findViewById(R.id.onBookmarks).setOnLongClickListener(onBookmarksLong);
+        findViewById(R.id.activity_horizontal_view__imageview_bookmars).setOnLongClickListener(onBookmarksLong);
 
         findViewById(R.id.onRecent).setOnClickListener(new View.OnClickListener() {
 
@@ -1930,8 +1930,8 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
     }
 
     private void tinUI() {
-        TintUtil.setTintBgSimple(actionBar, AppState.get().transparencyUI);
-        TintUtil.setTintBgSimple(bottomBar, AppState.get().transparencyUI);
+        //TintUtil.setTintBgSimple(actionBar, AppState.get().transparencyUI);
+//        TintUtil.setTintBgSimple(bottomBar, AppState.get().transparencyUI);
         TintUtil.setStatusBarColor(this);
         // TintUtil.setBackgroundFillColorBottomRight(ttsActive,
         // ColorUtils.setAlphaComponent(TintUtil.color, 230));
