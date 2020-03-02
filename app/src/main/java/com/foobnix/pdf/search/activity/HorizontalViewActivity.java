@@ -6,7 +6,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -39,6 +38,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
@@ -48,7 +48,6 @@ import com.foobnix.android.utils.Keyboards;
 import com.foobnix.android.utils.LOG;
 import com.foobnix.android.utils.ResultResponse;
 import com.foobnix.android.utils.TxtUtils;
-import com.foobnix.android.utils.Vibro;
 import com.foobnix.android.utils.Views;
 import com.foobnix.drive.GFile;
 import com.foobnix.ext.CacheZipUtils;
@@ -77,7 +76,6 @@ import com.foobnix.pdf.info.view.Dialogs;
 import com.foobnix.pdf.info.view.DialogsPlaylist;
 import com.foobnix.pdf.info.view.DragingDialogs;
 import com.foobnix.pdf.info.view.HorizontallSeekTouchEventListener;
-import com.foobnix.pdf.info.view.HypenPanelHelper;
 import com.foobnix.pdf.info.view.MyPopupMenu;
 import com.foobnix.pdf.info.view.ProgressDraw;
 import com.foobnix.pdf.info.view.UnderlineImageView;
@@ -99,9 +97,7 @@ import com.foobnix.pdf.search.view.VerticalViewPager;
 import com.foobnix.sys.ClickUtils;
 import com.foobnix.sys.TempHolder;
 import com.foobnix.tts.MessagePageNumber;
-import com.foobnix.tts.TTSControlsView;
 import com.foobnix.tts.TTSEngine;
-import com.foobnix.tts.TTSNotification;
 import com.foobnix.tts.TTSService;
 import com.foobnix.tts.TtsStatus;
 import com.foobnix.ui2.AdsFragmentActivity;
@@ -128,9 +124,10 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
     VerticalViewPager viewPager;
     SeekBar seekBar;
     TextView toastBrightnessText, floatingBookmarkTextView, maxSeek, currentSeek, pagesCountIndicator, flippingIntervalView, pagesTime, pagesTime1, pagesPower, titleTxt, chapterView, modeName, pannelBookTitle;
-    View adFrame, bottomBar, bottomIndicators, onClose, overlay, pagesBookmark, musicButtonPanel, parentParent;
-    LinearLayout actionBar, bottomPanel;
-    TTSControlsView ttsActive;
+    View bottomBar, bottomIndicators, overlay, pagesBookmark, musicButtonPanel, parentParent;
+    LinearLayout bottomPanel;
+    Toolbar actionBar;
+    //    TTSControlsView ttsActive;
     FrameLayout anchor;
     UnderlineImageView onCrop, onBC;
     ImageView moveCenter, lockModelImage, linkHistory, onModeChange, outline, onMove, textToSpeach, onPageFlip1, anchorX, anchorY;
@@ -382,18 +379,18 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
     };
     private volatile boolean isMyKey = false;
 
-    @Override
-    protected void onNewIntent(final Intent intent) {
-
-        if (TTSNotification.ACTION_TTS.equals(intent.getAction())) {
-            return;
-        }
-
-        if (!intent.filterEquals(getIntent())) {
-            finish();
-            startActivity(intent);
-        }
-    }
+//    @Override
+//    protected void onNewIntent(final Intent intent) {
+//
+//        if (TTSNotification.ACTION_TTS.equals(intent.getAction())) {
+//            return;
+//        }
+//
+//        if (!intent.filterEquals(getIntent())) {
+//            finish();
+//            startActivity(intent);
+//        }
+//    }
 
     protected void onCreateTest(final Bundle savedInstanceState) {
         DocumentController.doRotation(this);
@@ -445,9 +442,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
             return;
         }
 
-
-        findViewById(R.id.showHypenLangPanel).setVisibility(View.GONE);
-
         viewPager = (VerticalViewPager) findViewById(R.id.pager);
 
         parentParent = findViewById(R.id.parentParent);
@@ -458,12 +452,11 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
 
         progressDraw = (ProgressDraw) findViewById(R.id.progressDraw);
 
-        actionBar = (LinearLayout) findViewById(R.id.actionBar);
+        actionBar = findViewById(R.id.actionBar);
         bottomPanel = (LinearLayout) findViewById(R.id.bottomPanel);
 
         bottomBar = findViewById(R.id.bottomBar);
         bottomIndicators = findViewById(R.id.bottomIndicators);
-        adFrame = findViewById(R.id.adFrame);
         anchor = (FrameLayout) findViewById(R.id.anchor);
 
         anchorX = (ImageView) findViewById(R.id.anchorX);
@@ -627,7 +620,7 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
         musicButtonPanel = findViewById(R.id.musicButtonPanel);
         musicButtonPanel.setVisibility(View.GONE);
 
-        pagesBookmark = findViewById(R.id.pagesBookmark);
+        pagesBookmark = findViewById(R.id.activity_horizontal_view__imageview_bookmars);
         pagesBookmark.setOnClickListener(onBookmarks);
         pagesBookmark.setOnLongClickListener(onBookmarksLong);
 
@@ -659,8 +652,8 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
         });
         onFullScreen.setImageResource(DocumentController.getFullScreenIcon(HorizontalViewActivity.this, AppState.get().fullScreenMode));
 
-        ImageView dayNightButton = (ImageView) findViewById(R.id.bookNight);
-        dayNightButton.setOnClickListener(new View.OnClickListener() {
+        ImageView activity_horizontal_view__imageview_daylight = (ImageView) findViewById(R.id.activity_horizontal_view__imageview_daylight);
+        activity_horizontal_view__imageview_daylight.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(final View v) {
@@ -674,7 +667,7 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
             }
         });
         // if (Dips.isEInk(this)) {
-        // dayNightButton.setVisibility(View.GONE);
+        // activity_horizontal_view__imageview_daylight.setVisibility(View.GONE);
         // AppState.get().isDayNotInvert = true;
         // }
 
@@ -688,7 +681,7 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
             }
         });
 
-        dayNightButton.setImageResource(!AppState.get().isDayNotInvert ? R.drawable.glyphicons_232_sun : R.drawable.glyphicons_2_moon);
+        activity_horizontal_view__imageview_daylight.setImageResource(!AppState.get().isDayNotInvert ? R.drawable.glyphicons_232_sun : R.drawable.glyphicons_2_moon);
 
         moveCenter.setOnClickListener(new OnClickListener() {
 
@@ -762,7 +755,7 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
             hideShow();
             return true;
         });
-        ttsActive = findViewById(R.id.ttsActive);
+        //ttsActive = findViewById(R.id.ttsActive);
 
         // ttsActive.setOnClickListener(new View.OnClickListener() {
         //
@@ -951,8 +944,8 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
             return true;
         });
 
-        final View bookMenu = findViewById(R.id.bookMenu);
-        bookMenu.setOnClickListener(new View.OnClickListener() {
+        final View activity_horizontal_view__imageview_menumore = findViewById(R.id.activity_horizontal_view__imageview_menumore);
+        activity_horizontal_view__imageview_menumore.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(final View v) {
@@ -978,7 +971,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
                     }
                 });
                 Keyboards.hideNavigation(HorizontalViewActivity.this);
-                hideAds();
 
             }
         });
@@ -986,7 +978,7 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
 
             @Override
             public void onClick(View v) {
-                bookMenu.performClick();
+                activity_horizontal_view__imageview_menumore.performClick();
             }
         });
 //        modeName.setOnLongClickListener(new OnLongClickListener() {
@@ -1000,7 +992,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
 //                return true;
 //            }
 //        });
-        modeName.setOnLongClickListener(onCloseLongClick);
 
 
         findViewById(R.id.bookPref).setOnClickListener(new View.OnClickListener() {
@@ -1012,22 +1003,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
                 }
             }
         });
-
-        onClose = findViewById(R.id.bookClose);
-        onClose.setVisibility(View.INVISIBLE);
-
-        onClose.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(final View v) {
-                nullAdapter();
-                closeDialogs();
-                showInterstial();
-            }
-
-        });
-
-        onClose.setOnLongClickListener(onCloseLongClick);
 
         findViewById(R.id.editTop2).setVisibility(View.GONE);
         findViewById(R.id.nextTypeBootom).setVisibility(View.GONE);
@@ -1098,14 +1073,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
                             }
                         }
 
-                        HorizontalViewActivity.this.runOnUiThread(new Runnable() {
-
-                            @Override
-                            public void run() {
-                                updateBannnerTop();
-                            }
-                        });
-
                     } catch (InterruptedException e) {
                     }
                     LOG.d("viewPager", viewPager.getHeight() + "x" + viewPager.getWidth());
@@ -1156,7 +1123,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
                     Toast.makeText(HorizontalViewActivity.this, R.string.msg_unexpected_error, Toast.LENGTH_SHORT).show();
                     AppState.get().isEditMode = true;
                     hideShow();
-                    onClose.setVisibility(View.VISIBLE);
                     return;
                 }
 
@@ -1269,24 +1235,16 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
                     onCrop.underline(AppSP.get().isCrop);
                     onCrop.invalidate();
 
-                    ttsActive.setDC(dc);
-                    ttsActive.addOnDialogRunnable(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            DragingDialogs.textToSpeachDialog(anchor, dc);
-                        }
-                    });
+//                    ttsActive.setDC(dc);
+//                    ttsActive.addOnDialogRunnable(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            DragingDialogs.textToSpeachDialog(anchor, dc);
+//                        }
+//                    });
 
                     DialogsPlaylist.dispalyPlaylist(HorizontalViewActivity.this, dc);
-
-                    // RecentUpates.updateAll(HorizontalViewActivity.this);
-                    if (dc.getPageCount() == 0) {
-                        onClose.setVisibility(View.VISIBLE);
-                    }
-
-                    HypenPanelHelper.init(parentParent, dc);
-
                 }
 
             }
@@ -1306,20 +1264,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
             @TargetApi(Build.VERSION_CODES.HONEYCOMB)
             @Override
             public void onGlobalLayout() {
-
-                if (anchor.getVisibility() == View.VISIBLE) {
-                    adFrame.setVisibility(View.GONE);
-                    adFrame.setClickable(false);
-                } else {
-                    if (AppState.get().isEditMode && adFrame.getTag() == null) {
-                        adFrame.setVisibility(View.VISIBLE);
-                        adFrame.setClickable(true);
-                    } else {
-                        adFrame.setVisibility(View.GONE);
-                        adFrame.setClickable(false);
-                    }
-                }
-
                 if (Build.VERSION.SDK_INT >= 11) {
                     if (anchor.getX() < 0) {
                         anchor.setX(0);
@@ -1333,17 +1277,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
         });
 
     }
-
-    OnLongClickListener onCloseLongClick = new OnLongClickListener() {
-
-        @Override
-        public boolean onLongClick(final View v) {
-            Vibro.vibrate();
-            CloseAppDialog.showOnLongClickDialog(HorizontalViewActivity.this, v, dc);
-            hideAds();
-            return true;
-        }
-    };
 
     public void showPagesHelper() {
         try {
@@ -1385,11 +1318,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
             return false;
         }
         return dc.closeDialogs();
-    }
-
-    public void hideAds() {
-        adFrame.setTag("");
-        adFrame.setVisibility(View.GONE);
     }
 
     public void updateIconMode() {
@@ -1456,21 +1384,21 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onTTSStatus(TtsStatus status) {
-        try {
-            ttsActive.setVisibility(TxtUtils.visibleIf(!TTSEngine.get().isShutdown()));
-        } catch (Exception e) {
-            LOG.e(e);
-        }
+//        try {
+//            ttsActive.setVisibility(TxtUtils.visibleIf(!TTSEngine.get().isShutdown()));
+//        } catch (Exception e) {
+//            LOG.e(e);
+//        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onPageNumber(final MessagePageNumber event) {
-        try {
-            ttsActive.setVisibility(View.VISIBLE);
-            dc.onGoToPage(event.getPage() + 1);
-        } catch (Exception e) {
-            LOG.e(e);
-        }
+//        try {
+//            ttsActive.setVisibility(View.VISIBLE);
+//            dc.onGoToPage(event.getPage() + 1);
+//        } catch (Exception e) {
+//            LOG.e(e);
+//        }
     }
 
     @Subscribe
@@ -1696,9 +1624,9 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
 
         }
 
-        if (ttsActive != null) {
-            ttsActive.setVisibility(TxtUtils.visibleIf(TTSEngine.get().isTempPausing()));
-        }
+//        if (ttsActive != null) {
+//            ttsActive.setVisibility(TxtUtils.visibleIf(TTSEngine.get().isTempPausing()));
+//        }
 
     }
 
@@ -1970,7 +1898,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
 
             @Override
             public boolean onResultRecive(List<OutlineLinkWrapper> result) {
-                onClose.setVisibility(View.VISIBLE);
                 progressDraw.updateDivs(result);
                 updateUI(dc.getCurrentPage());
                 if (TxtUtils.isListEmpty(result)) {
@@ -2164,16 +2091,7 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
         hideShow(true);
     }
 
-    public void updateBannnerTop() {
-        try {
-            ((RelativeLayout.LayoutParams) adFrame.getLayoutParams()).topMargin = actionBar.getHeight() + Dips.dpToPx(24);
-        } catch (Exception e) {
-            LOG.e(e);
-        }
-    }
-
     public void hideShow(boolean animated) {
-        updateBannnerTop();
         showPagesHelper();
 
         if (prev == AppState.get().isEditMode) {
@@ -2188,8 +2106,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
         if (!animated || AppState.get().appTheme == AppState.THEME_INK) {
             actionBar.setVisibility(AppState.get().isEditMode ? View.VISIBLE : View.GONE);
             bottomBar.setVisibility(AppState.get().isEditMode ? View.VISIBLE : View.GONE);
-            adFrame.setVisibility(AppState.get().isEditMode ? View.VISIBLE : View.GONE);
-
             DocumentController.chooseFullScreen(this, AppState.get().fullScreenMode);
             return;
         }
@@ -2200,24 +2116,14 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
         final TranslateAnimation showActoinBar = new TranslateAnimation(0, 0, -actionBar.getHeight(), 0);
         final TranslateAnimation showBottomBar = new TranslateAnimation(0, 0, bottomBar.getHeight(), 0);
 
-        final TranslateAnimation adsShow = new TranslateAnimation(-adFrame.getWidth(), 0, 0, 0);
-        final TranslateAnimation adsHide = new TranslateAnimation(0, -adFrame.getWidth(), 0, 0);
-
         updateAnimation(hideActionBar);
         updateAnimation(hideBottomBar);
 
         updateAnimation(showActoinBar);
         updateAnimation(showBottomBar);
 
-        updateAnimation(adsShow);
-        updateAnimation(adsHide);
-
         if (AppState.get().isEditMode) {
             DocumentController.turnOnButtons(this);
-
-            if (anchor.getVisibility() == View.GONE) {
-                adFrame.startAnimation(adsShow);
-            }
 
             actionBar.startAnimation(showActoinBar);
             bottomBar.startAnimation(showBottomBar);
@@ -2236,9 +2142,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
                 public void onAnimationEnd(final Animation animation) {
                     actionBar.setVisibility(View.VISIBLE);
                     bottomBar.setVisibility(View.VISIBLE);
-                    adFrame.setVisibility(View.VISIBLE);
-                    adFrame.setTag(null);
-
                     Keyboards.invalidateEink(parentParent);
 
                 }
@@ -2246,10 +2149,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
 
         } else {
             DocumentController.turnOffButtons(this);
-
-            if (anchor.getVisibility() == View.GONE && adFrame.getVisibility() == View.VISIBLE) {
-                adFrame.startAnimation(adsHide);
-            }
             actionBar.startAnimation(hideActionBar);
             bottomBar.startAnimation(hideBottomBar);
 
@@ -2267,8 +2166,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
                 public void onAnimationEnd(final Animation animation) {
                     actionBar.setVisibility(View.GONE);
                     bottomBar.setVisibility(View.GONE);
-                    adFrame.setVisibility(View.GONE);
-
                     Keyboards.invalidateEink(parentParent);
 
                 }

@@ -90,7 +90,7 @@
                 android:layout_width="@dimen/wh_button"
                 android:layout_height="@dimen/wh_button"
                 android:layout_weight="0"
-                android:src="@drawable/glyphicons_232_sun" />
+                android:src="@drawable/ic_daylight_gray" />
 
             <com.foobnix.pdf.info.view.UnderlineImageView
                 android:id="@+id/crop"
@@ -143,14 +143,5 @@
             android:src="@drawable/glyphicons_208_remove_2" />
 
     </RelativeLayout>
-
-
-    <include
-        android:id="@+id/showHypenLangPanel"
-        layout="@layout/layout_hypen_panel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:visibility="visible" />
 
 </LinearLayout>

@@ -58,7 +58,6 @@ import com.foobnix.pdf.info.view.DialogsPlaylist;
 import com.foobnix.pdf.info.view.DragingDialogs;
 import com.foobnix.pdf.info.view.DrawView;
 import com.foobnix.pdf.info.view.HorizontallSeekTouchEventListener;
-import com.foobnix.pdf.info.view.HypenPanelHelper;
 import com.foobnix.pdf.info.view.MyPopupMenu;
 import com.foobnix.pdf.info.view.ProgressDraw;
 import com.foobnix.pdf.info.view.UnderlineImageView;
@@ -766,7 +765,7 @@ public class DocumentWrapperUI {
             closeDialogs();
             AppState.get().isEditMode = false;
             hideShow();
-            if(TTSEngine.get().isTempPausing()){
+            if (TTSEngine.get().isTempPausing()) {
                 TTSService.playPause(dc.getActivity(), dc);
             } else {
                 onAutoScrollClick();
@@ -1110,8 +1109,6 @@ public class DocumentWrapperUI {
     public void initUI(final Activity a) {
         this.a = a;
         quickBookmark = a.getString(R.string.fast_bookmark);
-
-        a.findViewById(R.id.showHypenLangPanel).setVisibility(View.GONE);
 
         parentParent = a.findViewById(R.id.parentParent);
         documentTitleBar = a.findViewById(R.id.document_title_bar);
@@ -2013,9 +2010,6 @@ public class DocumentWrapperUI {
                     updateSpeedLabel();
 
                     DialogsPlaylist.dispalyPlaylist(a, dc);
-                    HypenPanelHelper.init(parentParent, dc);
-
-
                     showPagesHelper();
 
                 }
