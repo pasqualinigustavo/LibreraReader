@@ -1,5 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Colors-->
+    <color name="colorPrimary">#ff7f12</color>
+    <color name="colorPrimaryDark">#e9590a</color>
+    <color name="colorIcon">#F16A22</color>
+    <color name="colorAccent">#93050c</color>
+    <color name="seekBarColor">#333333</color>
+    <color name="backgroundGrey">#F9F9F9</color>
+    <color name="green">#64B448</color>
+    <color name="colorFilterSelected">#9ab7bf</color>
+    <color name="teste">#5b5b5b</color>
+    <color name="teste1">#8e8e8e</color>
+
+    <color name="colorGrey3">#828282</color>
+    <color name="greenDeeplink">#58937F</color>
+    <color name="backgroundBlueButton">#166A9B</color>
+    <color name="blueButton">#2282F3</color>
+    <color name="colorGrayLight">#a6a6a6</color>
+    <color name="yellow">#F2C94C</color>
+    <color name="colorFilter">#f7a35b</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlackTransparent">#c5000000</color>
+    <color name="colorBlackBackgroundMenu">#4f4f4f</color>
+    <color name="colorLine">#E0E0E0</color>
+    <color name="colorBackgroundButtonBuy">#bdbdbd</color>
+    <color name="colorGrey">#8e8c8c</color>
+    <color name="colorGrey2">#f3f3f3</color>
+    <color name="colorBackVoucher">#B7E1AD</color>
+    <color name="colorGreyBackground">#e5e5e5</color>
+    <color name="colorTranslucentBlack">#6e000000</color>
+    <color name="colorTranslucentBlack2">#90000000</color>
+    <color name="colorTranslucentRose">#b7ec8181</color>
+    <color name="colorTranslucentPrimary">#95cc5e01</color>
+    <color name="colorTranslucentWhite">#58fffdfd</color>
+    <color name="colorTransparent">#00fffdfd</color>
+    <color name="colorFacebook">#4a6ea9</color>
+    <color name="colorGreen">#107600</color>
+    <color name="colorRed600">#e53935</color>
+    <color name="colorPurple600">#8e24aa</color>
+    <color name="colorYellow600">#fdd835</color>
+    <color name="colorYellow700">#fbc02d</color>
+    <color name="colorYellow800">#f9a825</color>
+    <color name="colorOrange600">#f4511e</color>
+    <color name="colorLigthGreen600">#7cb342</color>
+    <color name="colorLigthGreen900">#1b5e20</color>
+    <color name="colorTea600">#00897b</color>
+    <color name="colorIndigo600">#3949ab</color>
+    <color name="orange_text_button_register">#FF7C32</color>
+    <color name="background_button_evaluation">#FF7C32</color>
+    <color name="blue_text_button_register">#166A9B</color>
+    <color name="colorBlackDetails">#4f4f4f</color>
+    <color name="colorBlackTitleComments">#4B4B4B</color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent05">#0D000000</color>
+    <color name="transparent10">#1A000000</color>
+    <color name="transparent15">#26000000</color>
+    <color name="transparent20">#33000000</color>
+    <color name="transparent25">#40000000</color>
+    <color name="transparent30">#4D000000</color>
+    <color name="transparent35">#59000000</color>
+    <color name="transparent40">#66000000</color>
+    <color name="transparent45">#73000000</color>
+    <color name="transparent50">#80000000</color>
+    <color name="transparent55">#8C000000</color>
+    <color name="transparent60">#99000000</color>
+    <color name="transparent65">#A6000000</color>
+    <color name="transparent70">#B3000000</color>
+    <color name="transparent75">#BF000000</color>
+    <color name="transparent80">#CC000000</color>
+    <color name="transparent85">#D9000000</color>
+    <color name="transparent90">#E6000000</color>
+    <color name="transparent95">#F2000000</color>
+    <color name="transparent100">#FF000000</color>
+    <color name="transparentWhite25">#40FFFFFF</color>
+
+<!--outras cores-->
     <color name="alpa_10">#10000000</color> 
     <color name="alpa_40">#40000000</color>
     <color name="alpa_90">#90000000</color>
@@ -11,9 +87,6 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
    <color name="white_alpha">#bbffffff</color>
-    
-    
-    <color name="transparent">#00000000</color>
     
    <color name="grey_800">#424242</color>
    <color name="lt_grey">#acacac</color>

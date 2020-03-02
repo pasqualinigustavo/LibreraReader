@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.foobnix.pdf.info"
-    android:installLocation="auto"
-    android:versionCode="941"
-    android:versionName="7.12.87">
+    android:installLocation="auto">
 
    <uses-sdk tools:overrideLibrary="com.google.firebase.iid" />
 
