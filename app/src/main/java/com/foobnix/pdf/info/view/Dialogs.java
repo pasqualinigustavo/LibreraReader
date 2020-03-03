@@ -690,6 +690,16 @@ public class Dialogs {
 
     }
 
+//    public static MaterialDialog loadingBook(Context c) {
+//
+//        return new MaterialDialog.Builder(c)
+//                .theme(Theme.LIGHT)
+//                .cancelable(false)
+//                .progress(true, 0)
+//                .content(R.string.please_wait)
+//                .build();
+//    }
+
     public static AlertDialog loadingBook(Context c, final Runnable onCancel) {
         try {
             final AlertDialog.Builder builder = new AlertDialog.Builder(c);

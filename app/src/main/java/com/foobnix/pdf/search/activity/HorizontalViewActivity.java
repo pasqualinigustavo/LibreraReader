@@ -1048,6 +1048,8 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
                         finish();
                     }
                 });
+//                dialog = Dialogs.loadingBook(HorizontalViewActivity.this);
+//                dialog.show();
             }
 
             ;
