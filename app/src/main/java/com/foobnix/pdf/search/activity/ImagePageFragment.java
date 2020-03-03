@@ -100,10 +100,9 @@ public class ImagePageFragment extends Fragment {
             public void onLoadingStarted(String arg0, View arg1) {
                 LOG.d("ImagePageFragment1 onLoadingStarted ", page, isVisible(), isDetached(), isInLayout(), isAdded());
                 count++;
-
-                if (LOG.isEnable) {
-                    text.setText("onLoadingStarted");
-                }
+//                if (LOG.isEnable) {
+//                    text.setText("onLoadingStarted");
+//                }
             }
 
             @Override
@@ -112,10 +111,9 @@ public class ImagePageFragment extends Fragment {
                 // text.setVisibility(View.GONE);
                 // loadImage();
                 count--;
-
-                if (LOG.isEnable) {
-                    text.setText("onLoadingFailed");
-                }
+//                if (LOG.isEnable) {
+//                    text.setText("onLoadingFailed");
+//                }
             }
 
             @Override
@@ -129,20 +127,18 @@ public class ImagePageFragment extends Fragment {
                     bitmap = null;
                 }
                 count--;
-
-                if (LOG.isEnable) {
-                    text.setText("onLoadingComplete");
-                }
+//                if (LOG.isEnable) {
+//                    text.setText("onLoadingComplete");
+//                }
             }
 
             @Override
             public void onLoadingCancelled(String arg0, View arg1) {
                 count--;
                 loadImage();
-
-                if (LOG.isEnable) {
-                    text.setText("onLoadingCancelled");
-                }
+//                if (LOG.isEnable) {
+//                    text.setText("onLoadingCancelled");
+//                }
             }
         });
     }

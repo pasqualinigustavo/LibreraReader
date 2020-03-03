@@ -80,12 +80,6 @@ public class TintUtil {
         return AppState.get().isDayNotInvert ? AppState.get().statusBarColorDay : AppState.get().statusBarColorNight;
     }
 
-    public static int tintRandomColor() {
-        AppState.get().tintColor = Color.HSVToColor(new float[]{new Random().nextInt(360), new Random().nextFloat(), (3f + new Random().nextInt(4)) / 10f});
-        TintUtil.color = AppState.get().tintColor;
-        return AppState.get().tintColor;
-    }
-
     public static void init() {
         color = AppState.get().tintColor;
     }
@@ -329,3 +323,4 @@ public class TintUtil {
     }
 
 }
+
