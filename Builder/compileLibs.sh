@@ -36,7 +36,7 @@ cp -rp jni-1.11/~mupdf/epub-doc.c $MUPDF_ROOT/source/html/epub-doc.c
 
 cd $MUPDF_JAVA
 
-ndk-build APP_BUILD_SCRIPT=$MUPDF_JAVA/Mobi/Android.mk APP_PROJECT_DIR=$MUPDF_JAVA APP_PLATFORM=android-16 APP_OPTIM=release APP_ABI=all
+ndk-build APP_BUILD_SCRIPT=$MUPDF_JAVA/antiword/Android.mk APP_PROJECT_DIR=$MUPDF_JAVA APP_PLATFORM=android-16 APP_OPTIM=release APP_ABI=all
 
 echo "MUPDF:" $MUPDF_JAVA
 echo "LIBS:"  $LIBS

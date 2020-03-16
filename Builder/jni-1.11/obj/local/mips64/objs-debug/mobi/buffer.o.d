@@ -1,0 +1,14 @@
+/Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11/obj/local/mips64/objs-debug/mobi/buffer.o: \
+  /Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11/Mobi/buffer.c \
+  /Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11/Mobi/buffer.h \
+  /Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11/Mobi/config.h \
+  /Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11/Mobi/mobi.h \
+  /Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11/Mobi/debug.h
+
+/Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11/Mobi/buffer.h:
+
+/Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11/Mobi/config.h:
+
+/Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11/Mobi/mobi.h:
+
+/Users/pasqualini/Projetos/LibreraReader/Builder/jni-1.11/Mobi/debug.h:

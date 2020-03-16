@@ -29,7 +29,7 @@ public class LibreraApp extends MultiDexApplication {
     static {
         System.loadLibrary("mypdf");
         System.loadLibrary("mobi");
-//        System.loadLibrary("antiword");
+        //System.loadLibrary("antiword");
     }
 
     @Override
