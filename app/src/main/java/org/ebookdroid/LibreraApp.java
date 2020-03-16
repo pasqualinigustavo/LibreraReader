@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.multidex.MultiDexApplication;
 
 import com.foobnix.android.utils.Apps;
@@ -34,6 +35,7 @@ public class LibreraApp extends MultiDexApplication {
 
     @Override
     public void onCreate() {
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         super.onCreate();
 
 
@@ -44,8 +46,6 @@ public class LibreraApp extends MultiDexApplication {
         LOG.isEnable = BuildConfig.LOG || BuildConfig.IS_BETA;
 
         TTSNotification.initChannels(this);
-
-
         CacheZipUtils.init(this);
 
         IMG.init(this);

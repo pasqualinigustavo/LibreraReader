@@ -344,7 +344,6 @@ public class VerticalViewActivity extends AbstractActionActivity<VerticalViewAct
 
         } else {
             getController().onConfigChanged();
-            activateAds();
         }
     }
 

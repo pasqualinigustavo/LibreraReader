@@ -34,7 +34,6 @@ import com.foobnix.model.AppSP;
 import com.foobnix.model.AppState;
 import com.foobnix.pdf.info.ExtUtils;
 import com.foobnix.pdf.info.IMG;
-import com.foobnix.pdf.info.MyADSProvider;
 import com.foobnix.pdf.info.OutlineHelper;
 import com.foobnix.pdf.info.PageUrl;
 import com.foobnix.pdf.info.R;
@@ -229,11 +228,6 @@ public abstract class DocumentController {
         return MyMath.percent(getCurentPageFirst1(), getPageCount());
     }
 
-
-    public MyADSProvider getAdsProvider() {
-        return null;
-    }
-
     public abstract void updateRendering();
 
     public void goToPageByTTS() {
@@ -420,15 +414,15 @@ public abstract class DocumentController {
 
     public boolean closeDialogs() {
         if (anchor == null) {
-            LOG.d("closeDialogs","anchor false");
+            LOG.d("closeDialogs", "anchor false");
             return false;
         }
         boolean isVisible = anchor.getVisibility() == View.VISIBLE;
-        LOG.d("closeDialogs","isVisible",isVisible);
+        LOG.d("closeDialogs", "isVisible", isVisible);
         if (isVisible) {
             try {
                 activity.findViewById(R.id.closePopup).performClick();
-                LOG.d("closeDialogs","performClick");
+                LOG.d("closeDialogs", "performClick");
             } catch (Exception e) {
                 LOG.e(e);
             }
@@ -519,7 +513,6 @@ public abstract class DocumentController {
             }
 
 
-
             Keyboards.hideNavigation(a);
         } catch (Exception e) {
             LOG.e(e);
@@ -549,7 +542,6 @@ public abstract class DocumentController {
                 a.getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT;
                 a.getWindow().setAttributes(a.getWindow().getAttributes());
             }
-
 
 
         } catch (Exception e) {

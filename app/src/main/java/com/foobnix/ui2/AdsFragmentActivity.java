@@ -8,7 +8,6 @@ import android.os.Bundle;
 import androidx.fragment.app.FragmentActivity;
 
 import com.foobnix.android.utils.LOG;
-import com.foobnix.pdf.info.MyADSProvider;
 import com.foobnix.tts.TTSEngine;
 import com.foobnix.tts.TTSNotification;
 
@@ -16,8 +15,6 @@ import fi.iki.elonen.SampleServer;
 
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 public abstract class AdsFragmentActivity extends FragmentActivity {
-
-    private final MyADSProvider myAds = new MyADSProvider();
 
     public abstract void onFinishActivity();
 
@@ -36,8 +33,6 @@ public abstract class AdsFragmentActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
-        myAds.intetrstialTimeout = intetrstialTimeoutSec;
-        myAds.createHandler();
     }
 
 
@@ -46,22 +41,10 @@ public abstract class AdsFragmentActivity extends FragmentActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        activateAds();
-
-        // try {
-        // sampleServer = new SampleServer(this);
-        // } catch (IOException e) {
-        // LOG.e(e);
-        // }
-    }
-
-    public void activateAds() {
-        myAds.activate(this, withInterstitial, onFinish);
     }
 
     @Override
     protected void onDestroy() {
-        myAds.destroy();
         super.onDestroy();
     }
 
@@ -98,12 +81,7 @@ public abstract class AdsFragmentActivity extends FragmentActivity {
     public void showInterstial() {
         TTSNotification.hideNotification();
         TTSEngine.get().shutdown();
-        if (myAds.showInterstial()) {
-            // ok
-        } else {
-            onFinish.run();
-        }
-
+        onFinish.run();
     }
 
     public boolean isInterstialShown() {

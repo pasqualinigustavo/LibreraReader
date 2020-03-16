@@ -178,11 +178,10 @@
                 android:gravity="center">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="?android:attr/actionBarSize"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
+                    android:gravity="center|right"
                     android:orientation="horizontal"
                     android:padding="2dip"
                     android:visibility="visible">
@@ -192,7 +191,6 @@
                         style="@style/buttonWhite"
                         android:layout_width="@dimen/wh_button"
                         android:layout_height="@dimen/wh_button"
-                        android:layout_weight="0"
                         android:contentDescription="align document"
                         android:src="@drawable/glyphicons_114_justify_new"
                         android:visibility="gone" />
@@ -202,7 +200,6 @@
                         style="@style/buttonWhite"
                         android:layout_width="@dimen/wh_button"
                         android:layout_height="@dimen/wh_button"
-                        android:layout_weight="0"
                         android:contentDescription="@string/move"
                         android:src="@drawable/glyphicons_187_move"
                         android:visibility="gone" />
@@ -212,7 +209,6 @@
                         style="@style/buttonWhite"
                         android:layout_width="@dimen/wh_button"
                         android:layout_height="@dimen/wh_button"
-                        android:layout_weight="0"
                         android:contentDescription="@string/contrast"
                         android:src="@drawable/glyphicons_190_brightness_my"
                         android:visibility="gone" />
@@ -222,7 +218,6 @@
                         style="@style/buttonWhite"
                         android:layout_width="@dimen/wh_button"
                         android:layout_height="@dimen/wh_button"
-                        android:layout_weight="0"
                         android:contentDescription="@string/crop_white_borders"
                         android:src="@drawable/glyphicons_94_crop"
                         android:visibility="gone" />
@@ -240,7 +235,6 @@
                         android:id="@+id/activity_horizontal_view__imageview_daylight"
                         android:layout_width="@dimen/wh_button"
                         android:layout_height="@dimen/wh_button"
-                        android:layout_weight="0"
                         android:contentDescription="@string/brightness"
                         app:srcCompat="@drawable/ic_daylight_gray" />
 
@@ -248,7 +242,6 @@
                         android:id="@+id/activity_horizontal_view__imageview_bookmars"
                         android:layout_width="@dimen/wh_button"
                         android:layout_height="@dimen/wh_button"
-                        android:layout_weight="0"
                         android:contentDescription="@string/bookmarks"
                         app:srcCompat="@drawable/ic_tag_gray" />
 
@@ -256,7 +249,6 @@
                         android:id="@+id/activity_horizontal_view__imageview_menumore"
                         android:layout_width="@dimen/wh_button"
                         android:layout_height="@dimen/wh_button"
-                        android:layout_weight="0"
                         android:contentDescription="@string/menu"
                         app:srcCompat="@drawable/ic_more_gray" />
 

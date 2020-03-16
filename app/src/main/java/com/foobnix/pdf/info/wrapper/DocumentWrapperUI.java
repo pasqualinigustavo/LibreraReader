@@ -221,7 +221,7 @@ public class DocumentWrapperUI {
     String bookTitle;
     TextView toastBrightnessText, floatingBookmarkTextView, pagesCountIndicator, currentSeek, maxSeek, currentTime, bookName, nextTypeBootom, batteryLevel, lirbiLogo, reverseKeysIndicator;
     ImageView onDocDontext, toolBarButton, linkHistory, lockUnlock, lockUnlockTop, textToSpeachTop, clockIcon, batteryIcon, fullscreen;
-    ImageView showSearch, nextScreenType, moveCenter, autoScroll, textToSpeach, onModeChange, imageMenuArrow, editTop2, goToPage1, goToPage1Top;
+    ImageView activity_horizontal_view__imageview_search, nextScreenType, moveCenter, autoScroll, textToSpeach, onModeChange, imageMenuArrow, editTop2, goToPage1, goToPage1Top;
     View adFrame, titleBar, overlay, menuLayout, moveLeft, moveRight, bottomBar, onCloseBook, seekSpeedLayot, zoomPlus, zoomMinus;
     public View.OnLongClickListener onCloseLongClick = new View.OnLongClickListener() {
 
@@ -1303,8 +1303,8 @@ public class DocumentWrapperUI {
         onCloseBook.setOnLongClickListener(onCloseLongClick);
         onCloseBook.setVisibility(View.INVISIBLE);
 
-        showSearch = a.findViewById(R.id.activity_horizontal_view__imageview_search);
-        showSearch.setOnClickListener(onShowSearch);
+        activity_horizontal_view__imageview_search = a.findViewById(R.id.activity_horizontal_view__imageview_search);
+        activity_horizontal_view__imageview_search.setOnClickListener(onShowSearch);
         autoScroll = ((ImageView) a.findViewById(R.id.autoScroll));
         autoScroll.setOnClickListener(onAutoScroll);
 

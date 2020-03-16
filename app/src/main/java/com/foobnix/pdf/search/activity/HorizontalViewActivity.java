@@ -38,6 +38,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -100,7 +101,6 @@ import com.foobnix.tts.MessagePageNumber;
 import com.foobnix.tts.TTSEngine;
 import com.foobnix.tts.TTSService;
 import com.foobnix.tts.TtsStatus;
-import com.foobnix.ui2.AdsFragmentActivity;
 import com.foobnix.ui2.AppDB;
 import com.foobnix.ui2.MainTabs2;
 import com.foobnix.ui2.MyContextWrapper;
@@ -118,7 +118,7 @@ import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class HorizontalViewActivity extends AdsFragmentActivity {
+public class HorizontalViewActivity extends AppCompatActivity {
 
     public boolean prev = true;
     VerticalViewPager viewPager;
@@ -1685,7 +1685,7 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
         clickUtils.init();
         LOG.d("MessageEvent", ev.getMessage(), ev.getX(), ev.getY());
         if (ev.getMessage().equals(MessageEvent.MESSAGE_CLOSE_BOOK)) {
-            showInterstial();
+            //showInterstial();
         } else if (ev.getMessage().equals(MessageEvent.MESSAGE_CLOSE_BOOK_APP)) {
             dc.onCloseActivityFinal(new Runnable() {
 
@@ -1802,7 +1802,7 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
 
             @Override
             public void showInterstialAndClose() {
-                showInterstial();
+                //showInterstial();
             }
 
         };
@@ -2011,7 +2011,6 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void onRotateScreen() {
         // ADS.activate(this, adView);
-        activateAds();
 
         AppProfile.save(this);
         if (ExtUtils.isTextFomat(getIntent())) {
@@ -2345,10 +2344,10 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
     @Override
     public void onBackPressed() {
         // Toast.makeText(this, "onBackPressed", Toast.LENGTH_SHORT).show();
-        if (isInterstialShown()) {
-            onFinishActivity();
-            return;
-        }
+//        if (isInterstialShown()) {
+//            onFinishActivity();
+//            return;
+//        }
         if (dc != null && dc.floatingBookmark != null) {
             dc.floatingBookmark = null;
             onRefresh.run();
@@ -2375,26 +2374,26 @@ public class HorizontalViewActivity extends AdsFragmentActivity {
         if (AppState.get().isShowLongBackDialog) {
             CloseAppDialog.showOnLongClickDialog(HorizontalViewActivity.this, null, dc);
         } else {
-            showInterstial();
+            //showInterstial();
         }
     }
 
-    @Override
-    public void onFinishActivity() {
-        AppSP.get().lastClosedActivity = null;
-        if (handler != null) {
-            handler.removeCallbacksAndMessages(null);
-        }
-        nullAdapter();
-
-        if (dc != null) {
-            dc.saveCurrentPageAsync();
-            dc.onCloseActivityFinal(null);
-            dc.closeActivity();
-        } else {
-            finish();
-        }
-    }
+//    @Override
+//    public void onFinishActivity() {
+//        AppSP.get().lastClosedActivity = null;
+//        if (handler != null) {
+//            handler.removeCallbacksAndMessages(null);
+//        }
+//        nullAdapter();
+//
+//        if (dc != null) {
+//            dc.saveCurrentPageAsync();
+//            dc.onCloseActivityFinal(null);
+//            dc.closeActivity();
+//        } else {
+//            finish();
+//        }
+//    }
 
     private void updateAnimation(final TranslateAnimation a) {
         a.setDuration(250);
